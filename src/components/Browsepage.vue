@@ -3,7 +3,10 @@
         <img class="browse-img" alt="Vue logo" src="../assets/browse.jpg">
         <div class="first"></div>
         <div class="second">
-            <button class="buttons2">Search</button>
+            <button 
+                class="buttons2">Search 
+                <i class="fas fa-search"></i>
+            </button>
             <div>
                 <h1>Discover  Bios from Allover</h1>
                 <h2>View  bios from real people</h2>
@@ -29,29 +32,29 @@ h1{
     color: #FF5750;
 }
 .browse-img{
-    overflow: hidden;
-    width: 100%;
+    width:100%;
     opacity: 0.7;
-    margin-top: 0;
-    position: absolute;
+    margin: 0;
     height: fit-content;
+    display: block;
 }
 .browse-page{
     display: grid;
-    grid-template-columns: [first]50%  [second]50%;
+    
+    grid-template-columns: [start]50%  [end]50%;
     grid-template-areas: first second ;
 }
 .first{
     position: absolute;
-    grid-area: first;
+    grid-area: start;
 
 }
 .second{
     font-size: 30px;
     text-align: left;
+    grid-area: end;
     position: absolute;
-    grid-area: second;
-    right: 100px;
+    right: 300px;
     top: 1800px 
 }
 .buttons{
@@ -70,9 +73,12 @@ h1{
     font-size: 30px;
     font-weight: bold;
     padding: 35px;
-    width: 35%;
+    width: 40%;
     border-radius: 80px;
     background-color: #CB4B44;
     border: 0;
+}
+.fa-search{
+    padding: 10px;
 }
 </style>

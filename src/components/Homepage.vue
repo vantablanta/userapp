@@ -72,6 +72,8 @@ export default {
     margin: 0;
   }
   .home-image{
+    display: block;
+    margin-top: 0;
     width: 100%;
     height:fit-content;
   }

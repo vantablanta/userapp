@@ -12,7 +12,9 @@ export default {
   name: 'Home',
   components:{
     Homepage,
-    Browsepage
+    Browsepage,
+ 
+    
   }
 }
 </script>

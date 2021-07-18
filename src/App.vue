@@ -5,7 +5,17 @@
     <router-link to="/contact">Contact</router-link>
   </div>
   <router-view/>
+  <Footer/>
+  
 </template>
+<script>
+import Footer from './components/Footer.vue'
+export default {
+ components: {
+   Footer
+ }
+}
+</script>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
@@ -23,7 +33,8 @@
     right: 200px;
     top: 200px;
     align-items: center;
-    background-color: #CB4B44;
+    background-color: #CB4B44
+    ;
     border-radius: 80px;
     width: 22%;
     align-content: space-around;

@@ -1,8 +1,15 @@
 <template>
 <img alt= 'browse image'  src="../assets/browse.jpg">
+
   
 </template>
 
+<script>
+
+export default {
+
+}
+</script>
 
 
 
