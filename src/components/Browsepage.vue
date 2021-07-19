@@ -1,8 +1,21 @@
 <template>
     <div class="browse-page">
-        <img class="browse-img" alt="Vue logo" src="../assets/browse.jpg">
-        <div class="first"></div>
-        <div class="second">
+        <div 
+            :style="image"
+            class="first">
+            <div
+                @click="$store.commit('moreDetails')"
+                class="names"
+                v-for="(user, index) in getUsers" 
+                :key="user.id">
+                <div
+                    id='user'
+                    :style="{backgroundColor:getColors[index]}"
+                    >{{user.name[0]}}
+                </div>
+            </div>
+        </div>
+        <div class="second" style="grid-area:end;">
             <button 
                 class="buttons2">Search 
                 <i class="fas fa-search"></i>
@@ -16,69 +29,95 @@
             </div>
             <button class="buttons">Load More</button>
         </div>
-   </div>
-    
-    
+   </div>   
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: 'Browsepage', 
+    name: 'Browsepage',
+    data () {
+        return {
+            image:{
+                backgroundImage: `url(${require('@/assets/browse.jpg')})`
+            }
+        }
+    },
+    computed: mapState({
+        getUsers: state => state.users,
+        getColors: state => state.colors        
+  })
+    
 }
 </script>
 
 <style scoped>
-h1{
-    color: #FF5750;
-}
-.browse-img{
-    width:100%;
-    opacity: 0.7;
-    margin: 0;
-    height: fit-content;
-    display: block;
-}
-.browse-page{
-    display: grid;
-    
-    grid-template-columns: [start]50%  [end]50%;
-    grid-template-areas: first second ;
-}
-.first{
-    position: absolute;
-    grid-area: start;
-
-}
-.second{
-    font-size: 30px;
-    text-align: left;
-    grid-area: end;
-    position: absolute;
-    right: 300px;
-    top: 1800px 
-}
-.buttons{
-    font-size: 30px;
-    font-weight: bold;
-    padding: 35px;
-    width: 35%;
-    border-radius: 80px;
-    background-color: #CB4B44;
-    border: 0;
-}
-.buttons2{
-    position: absolute;
-    top: -300px;
-    right: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 35px;
-    width: 40%;
-    border-radius: 80px;
-    background-color: #CB4B44;
-    border: 0;
-}
-.fa-search{
-    padding: 10px;
-}
+    #user{
+        padding: 10px; 
+        margin: 50px;
+        width: 200px;
+        height: 200px;  
+        border-radius: 50%;
+    }
+    .names{
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        position:relative ;
+        font-size: 80px;
+        line-height: 2.5;   
+    }
+    h1{
+        color: #FF5750;
+    }
+    .browse-page{
+        display: grid;
+        grid-template-columns: [start]60%  [end]40%;
+    }
+    .first{
+        display: flex;
+        grid-area: start;
+        width:100%;
+        height: 100%
+    }
+    .second{
+        
+        position: relative;
+        float: left;
+        font-size: 30px;
+        margin-left: 50px;
+        margin-top: 100px;
+        grid-area: end;  
+    }
+    .buttons{
+        position: relative;
+        font-size: 30px;
+        font-weight: bold;
+        padding: 30px;
+        bottom: 20px;
+        width: 30%;
+        border-radius: 80px;
+        background-color:  rgba(203, 75, 68, 0.8);;
+        border: 0;
+    }
+    .buttons2{    
+        position: relative;
+        top: -40px;
+        left: 500px;
+        font-size: 30px;
+        font-weight: bold;
+        padding: 25px;
+        width: 30%;
+        border-radius: 80px;
+        background-color: #CB4B44;
+        border: 0;
+    }
+    .fa-search{
+        padding: 10px;
+    }
+    .browse-page{
+        background-color: #F8F5F5;
+    }
 </style>

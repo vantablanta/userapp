@@ -18,8 +18,8 @@ export default {
 <style scoped>
 .footer{
     padding-top:20px;
-    margin-top: 20px;
-    background-color:#E5E5E5;
+    margin-bottom: 0;
+    background-color:#E5E5E5 ;
     width: 100vw;
     display: grid;
     grid-template-columns: [start]25% [middle]50% [end]25%;

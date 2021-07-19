@@ -5,19 +5,14 @@
 </template>
 
 <script>
-
 export default {
 
 }
 </script>
 
-
-
-
 <style scoped>
 img{
-  width: 100%;
-  height: fit-content;
-  
+  position: unset;
+  width: 100%; 
 }
 </style>
