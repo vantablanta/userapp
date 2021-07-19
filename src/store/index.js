@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    users: [ ],
+    users: [],
     colors: [
       '#CB4B44',
       '#918F90',
@@ -14,14 +14,14 @@ export default createStore({
 
   },
   mutations: {
-    SET_USERS(state, users){
+    SET_USER(state, users){
       state.users = users
     }
   },
   actions: {
-    usersList( {commit}){
+    getUsers( {commit}){
       axios.get('https://ti-react-test.herokuapp.com/users').then(response => {
-        commit('SET_USERS', response.data)
+        commit('SET_USER', response.data)
       })
     }
   },

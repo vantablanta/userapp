@@ -4,14 +4,13 @@
             :style="image"
             class="first">
             <div
-                @click="$store.commit('moreDetails')"
                 class="names"
                 v-for="(user, index) in getUsers" 
                 :key="user.id">
                 <div
                     id='user'
-                    :style="{backgroundColor:getColors[index]}"
-                    >{{user.name[0]}}
+                    :style="{backgroundColor: getColors[index]}">
+                    {{user.name[0]}}
                 </div>
             </div>
         </div>
@@ -33,8 +32,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
     name: 'Browsepage',
     data () {
@@ -44,11 +41,17 @@ export default {
             }
         }
     },
-    computed: mapState({
-        getUsers: state => state.users,
-        getColors: state => state.colors        
-  })
-    
+    mounted(){
+        this.$store.dispatch('getUsers')
+    },
+    computed: {
+        getUsers(){
+            return this.$store.state.users.slice(0,5)
+        },
+        getColors(){
+            return this.$store.state.colors
+        }
+    },   
 }
 </script>
 
