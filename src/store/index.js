@@ -7,9 +7,11 @@ export default createStore({
     colors: [
       '#CB4B44',
       '#918F90',
-      '#FCB4AC',
       '#C4C4C4',
-      '#FF5750'
+      '#FF5750',
+      '#FCB4AC'
+      
+      
     ]
 
   },

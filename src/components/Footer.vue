@@ -24,6 +24,7 @@ export default {
     display: grid;
     grid-template-columns: [start]25% [middle]50% [end]25%;
     
+    
    
 }
 </style>

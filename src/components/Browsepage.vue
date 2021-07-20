@@ -26,7 +26,7 @@
                 <br>Read how your friends are describing <br>themselves.
                 Discover millions of Bios here</p>
             </div>
-            <button class="buttons">Load More</button>
+            <button  @click="loadMore()" class="buttons">Load More</button>
         </div>
    </div>   
 </template>
@@ -40,6 +40,11 @@ export default {
                 backgroundImage: `url(${require('@/assets/browse.jpg')})`
             }
         }
+    },
+    methods: {
+        loadMore(){
+        this.$router.push('/browse')
+      }
     },
     mounted(){
         this.$store.dispatch('getUsers')
