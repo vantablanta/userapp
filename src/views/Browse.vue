@@ -1,7 +1,113 @@
 <template>
+  <div class="main-browse">
+    <Userdetails />
+  </div>
+  
+</template>
+
+<script>
+import Userdetails from '../components/Userdetails.vue'
+export default {
+  name: 'Browse',
+  components: {
+    Userdetails
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<template>
     <div>
     <div 
-      :style="image"
+      
       class="main-browse">
       <div
         class="names"
@@ -10,18 +116,21 @@
         <div
           id='user'
           :style="{backgroundColor: getColors}">
-          <div>{{user.name}}</div>
+          <div>{{user.name}} {{user.email}} {{user.occupation}} </div>
         </div>
       </div>
       </div>
         <button @click="prev()" class="buttons2">Prev</button>
         <button @click="next()" class="buttons1">Next</button>
     </div>
+    
 
          
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     data () {
       return {
@@ -50,8 +159,8 @@ export default {
       getUsers(){
         return this.$store.state.users.slice(this.pageNumber * this.perPage, 
             this.pageNumber * this.perPage + 1 + this.perPage)
-      }
-    }
+      },
+    },
 }
 </script>
 
@@ -108,4 +217,4 @@ export default {
     bottom: -50px;
     left: 600px
   }
-</style>
+</style> -->
