@@ -1,10 +1,10 @@
 <template>
     <div class="home-page">
-        <img class="logo" alt="Vue logo" src="../assets/logo.png">
+        <img class="logo" alt="Vue logo" src="../assets/logo.png" @click="reload()">
         <div class="home-image">
         <transition-group name="fade" tag="div">
             <div v-for="i in [currentIndex]" :key="i">
-            <img class="home-image" :src="currentImage" />
+              <img class="home-image" :src="currentImage" />
             </div>
         </transition-group>
         <i class="fas fa-chevron-left" @click="prev"></i>
@@ -54,14 +54,17 @@ export default {
         prev() {
         this.currentIndex -= 1;
         this.currentTextIndex -= 1;
+        },
+        reload(){
+          this.$router.push('/')
         }
     },
     computed: {
         currentImage() {
-            return this.images[Math.abs(this.currentIndex) % this.images.length];
+          return this.images[Math.abs(this.currentIndex) % this.images.length];
         },
         currentText() {
-            return this.texts[Math.abs(this.currentTextIndex) % this.texts.length];
+          return this.texts[Math.abs(this.currentTextIndex) % this.texts.length];
         }
     }
 }

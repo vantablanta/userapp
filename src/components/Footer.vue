@@ -1,20 +1,15 @@
 <template>
     <div class="footer">
-     <img alt="logo" src="../assets/logo.png">
-    <div class="copyright">
-         &copy; Copyright All Rights Reserved | Michelle Njeri 
-    </div>
-    <div class="nav2">
-        <router-link to="/">Home</router-link>
-        <router-link to="/browse">Browse</router-link>
-        <router-link to="/contact">Contact</router-link>
-    </div>
-    </div>
-        
-
-
-    
-    
+        <img class="footer-logo" alt="logo" src="../assets/logo.png">
+        <div class="copyright">
+            &copy; Copyright All Rights Reserved | Michelle Njeri 
+        </div>
+        <div class="nav2">
+            <router-link to="/">Home</router-link> | 
+            <router-link to="/browse">Browse</router-link> | 
+            <router-link to="/contact">Contact</router-link>
+        </div>
+    </div>  
 </template>
 
 <script>
@@ -25,7 +20,6 @@ export default {
 
 <style scoped>
 .footer{
-    
     padding-top:20px;
     margin-bottom: 0;
     background-color:#E5E5E5 ;
@@ -42,8 +36,11 @@ export default {
     margin: 20px;
     padding:20px;
     font-size: 30px;
-    display: flex;
-    flex-flow: column nowrap;
 }
-
+a{
+    text-decoration: none;
+    color:#FF5750;
+    font-size: 30px;
+    font-weight: bold;
+}
 </style>

@@ -4,6 +4,7 @@
             :style="image"
             class="first">
             <div
+                @click="detailsPage()"
                 class="names"
                 v-for="(user, index) in getUsers" 
                 :key="user.id">
@@ -15,16 +16,15 @@
             </div>
         </div>
         <div class="second" style="grid-area:end;">
-            <button 
-                class="buttons2">Search 
-                <i class="fas fa-search"></i>
-            </button>
             <div>
                 <h1>Discover  Bios from Allover</h1>
                 <h2>View  bios from real people</h2>
-                <p style="font-weight: bold">Get a chance to update them
-                <br>Read how your friends are describing <br>themselves.
-                Discover millions of Bios here</p>
+                <p 
+                    style="font-weight: bold">
+                    Get a chance to update them
+                    <br>Read how your friends are describing <br>themselves.
+                    Discover millions of Bios here
+                </p>
             </div>
             <button @click="loadMore()" class="buttons">Load More</button>
         </div>
@@ -44,6 +44,9 @@ export default {
     methods: {
         loadMore(){
             this.$router.push('/browse')
+        },
+        detailsPage(){
+            this.$router.push('/browse')
         }
     },
     mounted(){
@@ -57,7 +60,6 @@ export default {
             return this.$store.state.colors
         },
     }        
-  
 }
 </script>
 
@@ -97,43 +99,32 @@ export default {
         position: relative;
         float: left;
         font-size: 30px;
-        margin-left: 50px;
-        margin-top: 100px;
+        padding:50px;
+       
         grid-area: end;  
     }
     .buttons{
         position: relative;
         font-size: 30px;
         font-weight: bold;
-        padding: 30px;
-        bottom: 20px;
-        width: 30%;
-        border-radius: 80px;
-        background-color:  rgba(203, 75, 68, 0.8);;
+        bottom: 5px;
+        padding: 20px;
+        width: 20%;
+        border-radius: 60px;
+        background-color:  rgba(203, 75, 68);;
         border: 0;
     }
     .buttons:hover {
         background-color: #C4C4C4;
         border: solid 1px #C4C4C4;
-    }
-    .buttons2{    
+        width: 22%;
         position: relative;
-        top: -40px;
-        left: 500px;
         font-size: 30px;
-        font-weight: bold;
-        padding: 25px;
-        width: 30%;
         border-radius: 80px;
-        background-color: #CB4B44;
-        border: 0;
     }
-    .buttons2:hover {
-        background-color: #C4C4C4;
-        border: solid 1px #C4C4C4;
-    }
-    .fa-search{
-        padding: 10px;
+    #user:hover{
+      background-color: #C4C4C4;
+      border: solid 5px #C4C4C4;  
     }
     
 </style>

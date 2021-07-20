@@ -1,67 +1,66 @@
 <template>
-  
-  <div id="contact-form" class="contact-form" >
+  	<div id="contact-form" class="contact-form" >
 		<h1 class="contact-form_title">Contact Us</h1>
 		<div class="separator"></div>
-
 		<div v-if="isSending" class="loading">Sending...</div>
-
-		<form class="form" @submit="onSubmit">
-			<input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
-			<input required name="email" v-model="contact.email" placeholder="E-mail" type="email" autocomplete="off">
-			<textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
-		   <button class="button">Send</button>
+		<form class="form">
+			<input 
+				required name="name" 
+				v-model='contact.name' 
+				placeholder="Name" 
+				type="text" 
+				autocomplete="on"
+			>
+			<input 
+				required name="email"
+				v-model="contact.email" 
+				placeholder="E-mail" 
+				type="email" 
+				autocomplete="off"
+			>
+			<textarea 
+				name="message" 
+				v-model="contact.message" 
+				rows="4" 
+				placeholder="Message">
+			</textarea>
+		   <button 
+		   		class="button" 
+			    @submit="onSubmit">
+				Send
+			</button>
 		</form>
-	</div>
-
+  	</div>
 </template>
 
 <script>
 export default {
   name: 'Contact',
-  data() {
-    return{
-      contact: {
-        name: '',
-        email: '',
-        message: '',
-		  },
-      isSending: false,
-    }
+  	data() {
+		return{
+			contact: {
+				name: '',
+				email: '',
+				message: '',
+			},
+			isSending: false,
+		}
 	},
-	methods: {	
-		clearForm() {
-			for (let field in this.contact) {
-				this.contact[field] = ''
-		  }
-	  },	
+	methods: {		
 		onSubmit(evt) {
 			evt.preventDefault();
 			this.isSending = true;
-    },
-		setTimeout(){
-				let form = new FormData();
-				for (let field in this.contact) {
-					form.append(field, this.contact[field]);
-        				this.$http.post('/app.php', form).then((response) => {
-                    console.log(response);
-                    this.clearForm();
-                    this.isSending = true;
-				        }).catch((e) => {
-					          console.log(e)
-				          });
-			  } 1000;
-		}
-  },
+    	},
+  	}
 }
 </script>
 
 <style scoped>
 .contact-form {
 	font-family: 16px;
-	margin-top: 400px;
-  margin-bottom: 50px;
-  margin-left: 800px;
+	margin-top: 350px;
+	margin-bottom: 50px;
+	margin-left: 800px;
 	max-width: 1000px;
 	width: 100%;
 }
@@ -97,8 +96,8 @@ export default {
 	cursor: pointer;
 	padding: 20px 50px;
 	text-align: center;
-  font-weight: bold;
-  font-size: 30px;
+	font-weight: bold;
+	font-size: 30px;
 	text-transform: uppercase;
 }
 .contact-form .button:hover {
