@@ -1,5 +1,115 @@
 <template>
-  <div class="contact">
-    <h1>This is an about page</h1>
-  </div>
+  
+  <div id="contact-form" class="contact-form" >
+		<h1 class="contact-form_title">Contact Us</h1>
+		<div class="separator"></div>
+
+		<div v-if="isSending" class="loading">Sending...</div>
+
+		<form class="form" @submit="onSubmit">
+			<input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
+			<input required name="email" v-model="contact.email" placeholder="E-mail" type="email" autocomplete="off">
+			<textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
+		   <button class="button">Send</button>
+		</form>
+	</div>
+
 </template>
+
+<script>
+export default {
+  name: 'Contact',
+  data() {
+    return{
+      contact: {
+        name: '',
+        email: '',
+        message: '',
+		  },
+      isSending: false,
+    }
+	},
+	methods: {	
+		clearForm() {
+			for (let field in this.contact) {
+				this.contact[field] = ''
+		  }
+	  },	
+		onSubmit(evt) {
+			evt.preventDefault();
+			this.isSending = true;
+    },
+		setTimeout(){
+				let form = new FormData();
+				for (let field in this.contact) {
+					form.append(field, this.contact[field]);
+        				this.$http.post('/app.php', form).then((response) => {
+                    console.log(response);
+                    this.clearForm();
+                    this.isSending = true;
+				        }).catch((e) => {
+					          console.log(e)
+				          });
+			  } 1000;
+		}
+  },
+}
+</script>
+
+<style scoped>
+.contact-form {
+	font-family: 16px;
+	margin-top: 400px;
+  margin-bottom: 50px;
+  margin-left: 800px;
+	max-width: 1000px;
+	width: 100%;
+}
+.contact-form .separator {
+	border-bottom: solid 1px #ccc;
+	margin-bottom: 15px;
+}
+.contact-form .form {
+	display: flex;
+	flex-direction: column;
+	font-size: 30px;
+}
+.contact-form_title {
+	color: rgb(12, 12, 12);
+	text-align: center;
+	font-size: 50px;
+}
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+	border: solid 1px #e8e8e8;
+	padding: 50px 50px;
+	margin-bottom: 15px;
+	outline: none;
+}
+.contact-form textarea {
+	resize: none;
+}
+.contact-form .button {
+	background: #CB4B44;
+	border: solid 1px #CB4B44;
+	color: rgb(3, 3, 3);
+	cursor: pointer;
+	padding: 20px 50px;
+	text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+	text-transform: uppercase;
+}
+.contact-form .button:hover {
+	background: #C4C4C4;
+	border: solid 1px #C4C4C4;
+}
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea,
+.contact-form .button {
+	font-size: 20px;
+	border-radius: 3px
+}
+</style>

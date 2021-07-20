@@ -26,7 +26,7 @@
                 <br>Read how your friends are describing <br>themselves.
                 Discover millions of Bios here</p>
             </div>
-            <button  @click="loadMore()" class="buttons">Load More</button>
+            <button @click="loadMore()" class="buttons">Load More</button>
         </div>
    </div>   
 </template>
@@ -43,20 +43,21 @@ export default {
     },
     methods: {
         loadMore(){
-        this.$router.push('/browse')
-      }
+            this.$router.push('/browse')
+        }
     },
     mounted(){
-        this.$store.dispatch('getUsers')
-    },
+            this.$store.dispatch('getUsers')
+        },
     computed: {
         getUsers(){
             return this.$store.state.users.slice(0,5)
         },
         getColors(){
             return this.$store.state.colors
-        }
-    },   
+        },
+    }        
+  
 }
 </script>
 
@@ -83,6 +84,8 @@ export default {
     .browse-page{
         display: grid;
         grid-template-columns: [start]60%  [end]40%;
+        background-color: #F8F5F5;
+        margin-bottom: 20px;
     }
     .first{
         display: flex;
@@ -91,7 +94,6 @@ export default {
         height: 100%
     }
     .second{
-        
         position: relative;
         float: left;
         font-size: 30px;
@@ -110,6 +112,10 @@ export default {
         background-color:  rgba(203, 75, 68, 0.8);;
         border: 0;
     }
+    .buttons:hover {
+        background-color: #C4C4C4;
+        border: solid 1px #C4C4C4;
+    }
     .buttons2{    
         position: relative;
         top: -40px;
@@ -122,10 +128,12 @@ export default {
         background-color: #CB4B44;
         border: 0;
     }
+    .buttons2:hover {
+        background-color: #C4C4C4;
+        border: solid 1px #C4C4C4;
+    }
     .fa-search{
         padding: 10px;
     }
-    .browse-page{
-        background-color: #F8F5F5;
-    }
+    
 </style>

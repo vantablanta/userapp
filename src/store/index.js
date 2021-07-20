@@ -13,7 +13,6 @@ export default createStore({
       
       
     ]
-
   },
   mutations: {
     SET_USER(state, users){
@@ -27,6 +26,10 @@ export default createStore({
       })
     }
   },
-  modules: {
+  getters: {
+    allUsers: (state) => {
+      return state.users
+    }
   }
+  
 })

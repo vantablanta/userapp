@@ -70,7 +70,7 @@ export default {
 <style scoped>
   .home-page{
     overflow-y:hidden;
-    margin: 0;
+    margin-bottom: 20px;
   }
   .home-image{
     display: block;
