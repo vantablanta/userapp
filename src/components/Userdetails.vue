@@ -30,7 +30,6 @@
 import { mapGetters } from 'vuex'
 export default {
     name: 'Browse',
-    
     mounted(){
       this.$store.dispatch('getUsers')
     },
@@ -47,13 +46,12 @@ export default {
 .main-browse{
     display:flex;
     flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
     flex-grow: 1;
     align-items: center;
     flex-wrap: nowrap;
-    margin-top: 400px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 0px;
+    margin-bottom: 50px;
 }
 .users{
     margin: 20px;

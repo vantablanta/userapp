@@ -31,11 +31,16 @@
 			</button>
 		</form>
   	</div>
+	  <Edit/>
 </template>
 
 <script>
+import Edit from  '../components/Edit.vue'
 export default {
   name: 'Contact',
+  components: {
+	  Edit
+  },
   	data() {
 		return{
 			contact: {
@@ -57,7 +62,6 @@ export default {
 
 <style scoped>
 .contact-form {
-	font-family: 16px;
 	margin-top: 350px;
 	margin-bottom: 50px;
 	margin-left: 800px;

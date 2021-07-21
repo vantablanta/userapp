@@ -107,7 +107,7 @@ export default {
 <!--<template>
     <div>
     <div 
-      
+      :style="image"
       class="main-browse">
       <div
         class="names"
