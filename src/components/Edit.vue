@@ -12,7 +12,7 @@
          <label>Bio</label>
         <input type="text" v-model="form.bio"/>
 
-        <button v-on:click="renameUsers()">Submit</button>
+        <button class="edit-button" v-on:click="renameUsers()">Submit</button>
     </div>
 </template>
 
@@ -52,3 +52,44 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.edit-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 50px;
+    
+
+}
+.edit-button{
+    margin-top: 30px;
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 20px;
+    border: 0;
+    background-color: #FCB4AC;
+    color: rgb(100, 99, 99);
+    
+}
+.edit-button:hover{
+    border: 2px solid #C4C4C4;
+    background-color: #C4C4C4;
+    color:black
+}
+input{
+    width: 300px;
+    height: 80px;
+    background-color: #dbdbdb;
+    border: 0;
+    border-radius: 30px;
+    font-size: 25px;
+    padding: 20px;
+    font-family: Rubik;
+    color: rgb(48, 48, 48);
+}
+input:focus{
+    outline:none
+}
+</style>

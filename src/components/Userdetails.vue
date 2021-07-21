@@ -21,15 +21,25 @@
         <div><span><i class="fas fa-sticky-note"></i>&nbsp;&nbsp;
             </span>"{{user.bio}}"
         </div>
-        <i class="fas fa-edit"></i>
+        <i class="fas fa-edit" @click="visible = !visible"></i>
+        <Edit v-if="visible"/>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import Edit from './Edit.vue'
 export default {
     name: 'Browse',
+    components: {
+      Edit
+    },
+    data(){
+      return {
+        visible: false
+      }
+    },
     mounted(){
       this.$store.dispatch('getUsers')
     },

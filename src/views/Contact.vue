@@ -31,17 +31,13 @@
 			</button>
 		</form>
   	</div>
-	  <Edit/>
+	 
 </template>
 
 <script>
-import Edit from  '../components/Edit.vue'
 export default {
   name: 'Contact',
-  components: {
-	  Edit
-  },
-  	data() {
+  data() {
 		return{
 			contact: {
 				name: '',
